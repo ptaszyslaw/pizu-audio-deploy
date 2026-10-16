@@ -168,7 +168,11 @@ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
 SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`},{name:`lamejs`,version:`1.2.1`,license:`LGPL-3.0`,homepage:`https://github.com/zhuker/lamejs#readme`,text:`Can I use LAME in my commercial program?  
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`},{name:`@soundtouchjs/audio-worklet`,version:`2.1.1`,license:`MPL-2.0`,homepage:`https://github.com/cutterbl/SoundTouchJS`,text:`Mozilla Public License Version 2.0
+
+This package is licensed under the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+Full license text: https://www.mozilla.org/en-US/MPL/2.0/`,note:`Zmiana tonacji i tempa (wraz z @soundtouchjs/core, worklet-base i interpolation-strategy-lanczos, wszystkie MPL-2.0). Pliki użyte bez zmian. Kod źródłowy: https://github.com/cutterbl/SoundTouchJS. Pełny tekst licencji: https://mozilla.org/MPL/2.0/`},{name:`lamejs`,version:`1.2.1`,license:`LGPL-3.0`,homepage:`https://github.com/zhuker/lamejs#readme`,text:`Can I use LAME in my commercial program?  
 
 Yes, you can, under the restrictions of the LGPL.  The easiest
 way to do this is to:
