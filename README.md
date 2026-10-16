@@ -1,4 +1,4 @@
 # Pizu Audio — build do wdrożenia
 
-Automatycznie generowany build aplikacji Pizu Audio (wersja 0.4.0).
+Automatycznie generowany build aplikacji Pizu Audio (wersja 0.4.1).
 Nie edytuj ręcznie — pliki są nadpisywane przy każdym wdrożeniu.
