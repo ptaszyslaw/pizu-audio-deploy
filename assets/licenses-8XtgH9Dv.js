@@ -120,7 +120,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.`},{name:`HTDemucs — model AI do rozdzielania ścieżek`,version:`htdemucs (eksport ONNX)`,license:`MIT`,homepage:`https://github.com/facebookresearch/demucs`,note:`Wagi modelu © Meta Platforms, Inc. (MIT). Plik ONNX pobierany z Hugging Face: huggingface.co/timcsy/demucs-web-onnx.`,text:`MIT License
+SOFTWARE.`},{name:`HTDemucs — model AI do rozdzielania ścieżek`,version:`htdemucs (eksport ONNX)`,license:`MIT`,homepage:`https://github.com/facebookresearch/demucs`,note:`Wagi modelu © Meta Platforms, Inc. (MIT). Eksport ONNX: projekt demucs-web (timcsy, MIT). Plik pobierany z Hugging Face: huggingface.co/ptasior/pizu-audio-models (niezmieniona kopia).`,text:`MIT License
 
 Copyright (c) Meta Platforms, Inc. and affiliates.
 
