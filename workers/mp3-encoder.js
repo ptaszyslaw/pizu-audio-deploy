@@ -1,5 +1,5 @@
 /*
- * MP3 encoder worker for Pizu Audio.
+ * MP3 encoder worker for PizuAudio.
  * Uses lamejs (LGPL-3.0), loaded as a separate, unmodified file:
  * vendor/lamejs/lame.min.js — https://github.com/zhuker/lamejs
  *
