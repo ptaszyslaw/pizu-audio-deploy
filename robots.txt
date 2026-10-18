@@ -1,0 +1,5 @@
+# PizuAudio — strona może być w całości indeksowana
+User-agent: *
+Allow: /
+
+Sitemap: https://audio.pizu.pl/sitemap.xml

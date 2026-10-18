@@ -29,4 +29,15 @@ AddType application/wasm .wasm
   <FilesMatch "^ort-wasm.*\.(wasm|mjs)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
+
+  # Security headers on every response
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  # The page's CSP: scripts/deploy.mjs fills in the policy from index.html's
+  # <meta> plus frame-ancestors (a <meta> can't carry it). Only on HTML —
+  # workers take their CSP from their own response, and they compile WebAssembly.
+  <FilesMatch "\.html$">
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co; frame-ancestors 'none'"
+  </FilesMatch>
 </IfModule>
