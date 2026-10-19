@@ -4,4 +4,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/audio/
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R .htaccess assets favicon.png index.html licenses ort-1.30.0 robots.txt settings-init.js sitemap.xml vendor workers $DEPLOYPATH
+    - /bin/cp -R .htaccess assets favicon.png index.html licenses oddziel-wokal ort-1.30.0 przytnij-mp3 robots.txt settings-init.js sitemap.xml vendor workers $DEPLOYPATH

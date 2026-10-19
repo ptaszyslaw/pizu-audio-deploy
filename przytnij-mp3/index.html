@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- every address (/, /oddziel-wokal/, …) loads files from the site root — see lib/routes.ts -->
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co"
+    />
+    <meta name="description" content="Wytnij fragment nagrania, wyrównaj głośność, dodaj płynne wejście i wyciszenie, zapisz jako MP3 lub WAV. W przeglądarce, bez wysyłania pliku na serwer." />
+    <link rel="canonical" href="https://audio.pizu.pl/przytnij-mp3/" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- applies saved theme / contrast / text size before the first paint -->
+    <script src="./settings-init.js"></script>
+    <title>Przytnij MP3 i konwertuj audio — MP3, WAV | PizuAudio</title>
+    <script type="module" crossorigin src="./assets/index-BOqFzBpn.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Ca8xNmKd.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
