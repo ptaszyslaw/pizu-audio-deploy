@@ -2,15 +2,18 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # The old address audio.ptaszynski.pl shares this folder with audio.pizu.pl:
-  # one 301 straight to the new https address. Kept here, not in cPanel
-  # "Redirects" — every deploy overwrites this file.
-  RewriteCond %{HTTP_HOST} ^(www\.)?audio\.ptaszynski\.pl$ [NC]
-  RewriteRule ^ https://audio.pizu.pl%{REQUEST_URI} [R=301,L]
-
-  # Force HTTPS
-  RewriteCond %{HTTPS} !=on
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  # One address: everything but https://audio.pizu.pl that reaches this folder
+  # (http, www.audio.pizu.pl, ptasior.hostilla.pl/audio/, the old
+  # audio.ptaszynski.pl if it ever points here again) gets a single 301 to
+  # https://audio.pizu.pl, path and query kept. Path from $1 (relative to this
+  # folder), not %{REQUEST_URI}, so ptasior.hostilla.pl/audio/x lands on /x;
+  # without NE Apache encodes spaces and % in the target. /.well-known stays put
+  # for AutoSSL. Kept here, not in cPanel "Redirects" — every deploy overwrites
+  # this file.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^audio\.pizu\.pl\.?(?::[0-9]+)?$ [NC]
+  RewriteRule ^(.*)$ https://audio.pizu.pl/$1 [R=301,L]
 </IfModule>
 
 AddType application/javascript .mjs
