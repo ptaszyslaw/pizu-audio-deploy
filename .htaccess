@@ -19,6 +19,11 @@
 AddType application/javascript .mjs
 AddType application/wasm .wasm
 
+# Wrong addresses get the Pizu 404 page (404.html, copied from pizu-pl/shell by
+# scripts/sync-shell.mjs there) instead of the hosting's generic error page.
+# Root-relative, so it works under any path; the status stays 404.
+ErrorDocument 404 /404.html
+
 <IfModule mod_headers.c>
   # index.html must always revalidate, or a redeploy white-screens cached visitors
   <FilesMatch "\.html$">
@@ -34,6 +39,9 @@ AddType application/wasm .wasm
   </FilesMatch>
 
   # Security headers on every response
+  # HSTS only over HTTPS (browsers ignore it over http, which is redirected above
+  # anyway). No includeSubDomains/preload: cPanel also has mail., webmail. etc.
+  Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on'"
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "DENY"

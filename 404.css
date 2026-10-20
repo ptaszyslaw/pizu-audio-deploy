@@ -1,0 +1,145 @@
+/* Pizu — strona błędu 404 (404.html obok). Kolory jak na pizu.pl (site/start.css).
+   Motyw: system, chyba że settings-init.js strony ustawił wybór z panelu „Wygląd” — pizu.pl atrybutami
+   data-theme / data-contrast / data-text na <html>, narzędzia klasami dark / contrast-high (wielkość tekstu
+   ustawiają same w style <html>). */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f6f7f9, #121419);
+  --surface: light-dark(#ffffff, #1b1e25);
+  --ink: light-dark(#1d2129, #eef0f4);
+  --muted: light-dark(#5b6170, #a6acb9);
+  --line: light-dark(#e3e6eb, #2a2e37);
+  --brand-ink: light-dark(#c22f39, #f47279);
+  --home: light-dark(#c22f39, #f47279);
+  --home-tile: light-dark(#ffe3e5, #3a1f23);
+  --audio: light-dark(#6d3fd8, #b9a0ff);
+  --audio-tile: light-dark(#efe9ff, #2b2442);
+  --grafika: light-dark(#0f766e, #5ee0d0);
+  --grafika-tile: light-dark(#d9f6f1, #173430);
+  --pdf: light-dark(#c22f39, #f47279);
+  --pdf-tile: light-dark(#ffe3e5, #3a1f23);
+  --glow: light-dark(rgba(239, 66, 73, 0.12), rgba(239, 66, 73, 0.16));
+  --shadow-color: light-dark(rgba(20, 24, 33, 0.07), rgba(0, 0, 0, 0.3));
+  --focus: light-dark(#2563eb, #7aa2ff);
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"],
+:root.dark { color-scheme: dark; }
+
+:root[data-contrast="high"],
+:root.contrast-high {
+  --ink: light-dark(#0b0d12, #ffffff);
+  --muted: light-dark(#343944, #dde0e7);
+  --line: light-dark(#7d8491, #7f8694);
+  --brand-ink: light-dark(#a3202a, #ff8a8f);
+  --focus: light-dark(#1d4ed8, #a5c0ff);
+}
+
+:root[data-text="115"] { font-size: 115%; }
+:root[data-text="130"] { font-size: 130%; }
+:root[data-text="150"] { font-size: 150%; }
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+  background:
+    radial-gradient(60rem 30rem at 100% -10%, var(--glow), transparent 60%),
+    var(--bg);
+}
+
+a { color: var(--brand-ink); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 0.5rem; }
+
+.nf { width: 100%; max-width: 40rem; }
+
+.nf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.nf-bird { width: 2.75rem; height: 2.75rem; flex: none; }
+
+.nf-code {
+  margin: 2rem 0 0;
+  color: var(--brand-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0.25rem 0 0;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.nf-lead { margin: 1rem 0 0; color: var(--muted); font-size: 1.1rem; }
+
+.nf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.nf-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.85rem;
+  align-items: center;
+  height: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: 0 1px 2px var(--shadow-color);
+  color: var(--ink);
+  text-decoration: none;
+}
+.nf-card:hover { border-color: var(--accent); box-shadow: 0 1px 2px var(--shadow-color), 0 10px 24px var(--shadow-color); }
+.nf-card:focus-visible { border-radius: 1rem; }
+.nf-icon {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
+  background: var(--tile);
+  color: var(--accent);
+}
+.nf-icon svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.nf-name { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+.nf-product { color: var(--brand-ink); }
+.nf-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.3; }
+
+.nf-home { --accent: var(--home); --tile: var(--home-tile); }
+.nf-audio { --accent: var(--audio); --tile: var(--audio-tile); }
+.nf-grafika { --accent: var(--grafika); --tile: var(--grafika-tile); }
+.nf-pdf { --accent: var(--pdf); --tile: var(--pdf-tile); }
+
+.nf-foot { margin: 1.75rem 0 0; color: var(--muted); font-size: 0.95rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .nf-card { transition: border-color 0.15s, box-shadow 0.15s; }
+}
+:root[data-motion="reduced"] .nf-card,
+:root.reduce-motion .nf-card { transition: none; }

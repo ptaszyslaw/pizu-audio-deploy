@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- Strona błędu 404 wszystkich stron Pizu: pizu.pl, PizuAudio, PizuGrafika i PizuPDF.
+     Źródło: 404.html i 404.css w shell/ projektu pizu-pl — scripts/sync-shell.mjs kopiuje je do każdej strony,
+     tam ich nie edytuj. Serwer pokazuje ją pod każdym błędnym adresem (ErrorDocument 404 w .htaccess), także
+     /a/b/c/, więc pliki wczytuje od korzenia (/404.css), a linki są pełnymi adresami. Bez stylów i skryptów
+     w treści strony: pizu.pl ma CSP style-src 'self' i script-src 'self'. -->
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Nie ma takiej strony — Pizu</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='96' fill='%23EF4249'/%3E%3Cg transform='translate(34 40) scale(0.66)'%3E%3Cellipse cx='95' cy='105' rx='55' ry='50' fill='%23fff'/%3E%3Ccircle cx='105' cy='60' r='45' fill='%23fff'/%3E%3Cpath d='M142 48 L180 66 L140 88 C147 74 147 60 142 48 Z' fill='%23FFD3D5'/%3E%3Ccircle cx='120' cy='55' r='9' fill='%23262B36'/%3E%3Cpath d='M20 140 C36 92 88 74 128 90 C138 102 134 118 120 130 C88 148 44 150 20 140 Z' fill='%23C92F3A'/%3E%3C/g%3E%3C/svg%3E" />
+  <!-- motyw, kontrast i wielkość tekstu z panelu „Wygląd” — każda strona ma własny settings-init.js -->
+  <script src="/settings-init.js?v=dev"></script>
+  <link rel="stylesheet" href="/404.css?v=dev" />
+</head>
+<body>
+  <main class="nf">
+    <a class="nf-logo" href="https://pizu.pl/">
+      <svg class="nf-bird" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <circle cx="100" cy="100" r="96" fill="#ef4249" />
+        <g transform="translate(34 40) scale(0.66)">
+          <ellipse cx="95" cy="105" rx="55" ry="50" fill="#fff" />
+          <circle cx="105" cy="60" r="45" fill="#fff" />
+          <path d="M142 48 L180 66 L140 88 C147 74 147 60 142 48 Z" fill="#ffd3d5" />
+          <circle cx="120" cy="55" r="9" fill="#262b36" />
+          <path d="M20 140 C36 92 88 74 128 90 C138 102 134 118 120 130 C88 148 44 150 20 140 Z" fill="#c92f3a" />
+        </g>
+      </svg>
+      <span>Pizu</span>
+    </a>
+
+    <p class="nf-code">Błąd 404</p>
+    <h1>Nie ma takiej strony</h1>
+    <p class="nf-lead">Adres może mieć literówkę albo strona została przeniesiona. Wybierz, dokąd chcesz przejść:</p>
+
+    <ul class="nf-list">
+      <li>
+        <a class="nf-card nf-home" href="https://pizu.pl/">
+          <span class="nf-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.8" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.8" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.8" /><rect x="13.5" y="13.5" width="7" height="7" rx="1.8" /></svg>
+          </span>
+          <span class="nf-name">Pizu</span>
+          <span class="nf-desc">Wszystkie narzędzia</span>
+        </a>
+      </li>
+      <li>
+        <a class="nf-card nf-audio" href="https://audio.pizu.pl/">
+          <span class="nf-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 12h1M7 8v8M11 4v16M15 7v10M19 10v4M22 12h-1" /></svg>
+          </span>
+          <span class="nf-name">Pizu<span class="nf-product">Audio</span></span>
+          <span class="nf-desc">Dźwięk i muzyka</span>
+        </a>
+      </li>
+      <li>
+        <a class="nf-card nf-grafika" href="https://grafika.pizu.pl/">
+          <span class="nf-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5" /><path d="M3 17l5-5 4 4 3-3 6 6" /><circle cx="16" cy="9" r="1.6" /></svg>
+          </span>
+          <span class="nf-name">Pizu<span class="nf-product">Grafika</span></span>
+          <span class="nf-desc">Zdjęcia i grafika, kody QR</span>
+        </a>
+      </li>
+      <li>
+        <a class="nf-card nf-pdf" href="https://pdf.pizu.pl/">
+          <span class="nf-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 2.8h8.2L19 7.6v13.6H6z" /><path d="M14 2.8v5h5" /><path d="M9 13h7M9 16.5h7M9 9.5h3" /></svg>
+          </span>
+          <span class="nf-name">Pizu<span class="nf-product">PDF</span></span>
+          <span class="nf-desc">Dokumenty PDF</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="nf-foot">Trafiasz tu z linku na stronie Pizu? Daj znać: <a href="mailto:kontakt@pizu.pl">kontakt@pizu.pl</a></p>
+  </main>
+</body>
+</html>
