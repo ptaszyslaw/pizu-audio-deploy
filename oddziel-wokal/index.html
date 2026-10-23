@@ -29,10 +29,44 @@
     <!-- applies saved theme / contrast / text size before the first paint -->
     <script src="./settings-init.js"></script>
     <title>Oddziel wokal od muzyki — podkład do karaoke | PizuAudio</title>
-    <script type="module" crossorigin src="./assets/index-CKLp_I1y.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BtF_bFZ1.css">
+    <script type="module" crossorigin src="./assets/index-DlDns-Rc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CLiriAs9.css">
+    <script id="page-structured-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Oddziel wokal od muzyki","description":"Rozdziel piosenkę na wokal i podkład albo na 4 ścieżki dzięki AI w przeglądarce. Zmień tonację i tempo, ćwicz w pętli A–B i nagraj karaoke. Bez wysyłania nagrań.","applicationCategory":"MultimediaApplication","operatingSystem":"Dowolny — działa w przeglądarce","offers":{"@type":"Offer","price":0,"priceCurrency":"PLN"},"url":"https://audio.pizu.pl/oddziel-wokal/"},{"@type":"FAQPage","url":"https://audio.pizu.pl/oddziel-wokal/","mainEntity":[{"@type":"Question","name":"Czy nagranie trafia na serwer?","acceptedAnswer":{"@type":"Answer","text":"Nie. Rozdzielanie odbywa się na Twoim urządzeniu. Z internetu pobierany jest tylko model AI (z serwisu Hugging Face) — bez Twoich nagrań."}},{"@type":"Question","name":"Ile trwa rozdzielanie?","acceptedAnswer":{"@type":"Answer","text":"Zależy od długości utworu i mocy komputera — od kilkudziesięciu sekund do kilku minut. W tym czasie możesz korzystać z innych narzędzi; rozdzielanie trwa dalej."}},{"@type":"Question","name":"Jak zrobić podkład do karaoke?","acceptedAnswer":{"@type":"Answer","text":"Po rozdzieleniu wybierz w mikserze „Karaoke (bez wokalu)” i pobierz podkład albo od razu nagraj do niego swój śpiew."}},{"@type":"Question","name":"Czy mogę zmienić tonację piosenki?","acceptedAnswer":{"@type":"Answer","text":"Tak — w mikserze zmienisz tonację i tempo, np. żeby dopasować utwór do swojego głosu."}}]}]}</script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!-- pizu:static-content -->
+    <div class="flex flex-col min-h-screen">
+      <pizu-header site="audio" tool="oddziel-wokal" settings=""></pizu-header>
+      <main id="main" tabindex="-1" class="flex-1 focus:outline-none">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 pt-6 pb-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-red-100 text-red-500 rounded-xl flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines" aria-hidden="true"><path d="M2 10v3"></path><path d="M6 6v11"></path><path d="M10 3v18"></path><path d="M14 8v7"></path><path d="M18 5v13"></path><path d="M22 10v3"></path></svg></div>
+          <div>
+            <h1 class="text-xl font-bold text-ink">Oddziel wokal od muzyki</h1>
+            <p class="text-sm text-gray-500">Wokal, podkład i 4 osobne ścieżki — rozdzielane przez AI na Twoim urządzeniu.</p>
+          </div>
+        </div>
+      </div>
+        <section aria-labelledby="info-separate" class="max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-12 text-sm text-gray-600 leading-relaxed">
+        <h2 id="info-separate" class="text-lg font-bold text-ink">Jak to działa</h2>
+        <p class="mt-2">Rozdzielasz utwór na wokal i podkład — albo na cztery ścieżki — modelem AI, który działa w Twojej przeglądarce. Nagranie nie jest nigdzie wysyłane.</p>
+        <ol class="mt-3 space-y-1.5 list-decimal pl-5">
+          <li>Wczytaj plik audio — MP3, WAV, FLAC, OGG, M4A i inne, które obsługuje Twoja przeglądarka.</li>
+          <li>Rozdziel nagranie na wokal i podkład albo na cztery ścieżki. Przy pierwszym użyciu przeglądarka pobierze model AI (ok. 172 MB) i zapamięta go na kolejne razy.</li>
+          <li>Słuchaj w mikserze: karaoke bez wokalu, sam wokal, bez perkusji albo bez basu. Zmieniaj tonację i tempo, ćwicz fragment w pętli A–B.</li>
+          <li>Pobierz ścieżki jako MP3 lub WAV albo nagraj swój śpiew do podkładu.</li>
+        </ol>
+        <h2 class="mt-8 text-lg font-bold text-ink">Pytania i odpowiedzi</h2>
+        <dl class="mt-2 divide-y divide-gray-200">
+          <div class="py-3"><dt class="font-semibold text-ink">Czy nagranie trafia na serwer?</dt><dd class="mt-1">Nie. Rozdzielanie odbywa się na Twoim urządzeniu. Z internetu pobierany jest tylko model AI (z serwisu Hugging Face) — bez Twoich nagrań.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Ile trwa rozdzielanie?</dt><dd class="mt-1">Zależy od długości utworu i mocy komputera — od kilkudziesięciu sekund do kilku minut. W tym czasie możesz korzystać z innych narzędzi; rozdzielanie trwa dalej.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Jak zrobić podkład do karaoke?</dt><dd class="mt-1">Po rozdzieleniu wybierz w mikserze „Karaoke (bez wokalu)” i pobierz podkład albo od razu nagraj do niego swój śpiew.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Czy mogę zmienić tonację piosenki?</dt><dd class="mt-1">Tak — w mikserze zmienisz tonację i tempo, np. żeby dopasować utwór do swojego głosu.</dd></div>
+        </dl>
+      </section>
+      </main>
+      <pizu-footer product="PizuAudio"></pizu-footer>
+    </div>
+    <!-- /pizu:static-content --></div>
   </body>
 </html>

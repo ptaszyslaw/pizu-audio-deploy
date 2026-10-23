@@ -1,4 +1,4 @@
 # PizuAudio — build do wdrożenia
 
-Automatycznie generowany build aplikacji PizuAudio (wersja 0.7.2).
+Automatycznie generowany build aplikacji PizuAudio (wersja 0.7.3).
 Nie edytuj ręcznie — pliki są nadpisywane przy każdym wdrożeniu.

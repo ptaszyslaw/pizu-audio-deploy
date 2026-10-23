@@ -29,10 +29,44 @@
     <!-- applies saved theme / contrast / text size before the first paint -->
     <script src="./settings-init.js"></script>
     <title>Przytnij MP3 i konwertuj audio — MP3, WAV | PizuAudio</title>
-    <script type="module" crossorigin src="./assets/index-CKLp_I1y.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BtF_bFZ1.css">
+    <script type="module" crossorigin src="./assets/index-DlDns-Rc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CLiriAs9.css">
+    <script id="page-structured-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Przytnij i konwertuj audio — MP3 i WAV","description":"Wytnij fragment nagrania, wyrównaj głośność, dodaj płynne wejście i wyciszenie, zapisz jako MP3 lub WAV. W przeglądarce, bez wysyłania pliku na serwer.","applicationCategory":"MultimediaApplication","operatingSystem":"Dowolny — działa w przeglądarce","offers":{"@type":"Offer","price":0,"priceCurrency":"PLN"},"url":"https://audio.pizu.pl/przytnij-mp3/"},{"@type":"FAQPage","url":"https://audio.pizu.pl/przytnij-mp3/","mainEntity":[{"@type":"Question","name":"Jak wyciąć fragment piosenki na dzwonek?","acceptedAnswer":{"@type":"Answer","text":"Zaznacz fragment, dodaj krótkie płynne wejście i wyciszenie, zapisz jako MP3."}},{"@type":"Question","name":"Czy zamienię WAV na MP3 (i odwrotnie)?","acceptedAnswer":{"@type":"Answer","text":"Tak — wczytaj plik, zaznacz całe nagranie i zapisz je w drugim formacie."}},{"@type":"Question","name":"Jakie pliki mogę wczytać?","acceptedAnswer":{"@type":"Answer","text":"MP3, WAV, FLAC, OGG/Opus, M4A/AAC, WebM, AIFF i inne formaty, które obsługuje Twoja przeglądarka."}},{"@type":"Question","name":"Czy plik trafia na serwer?","acceptedAnswer":{"@type":"Answer","text":"Nie. Przycinanie i konwersja odbywają się w Twojej przeglądarce."}}]}]}</script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!-- pizu:static-content -->
+    <div class="flex flex-col min-h-screen">
+      <pizu-header site="audio" tool="przytnij-mp3" settings=""></pizu-header>
+      <main id="main" tabindex="-1" class="flex-1 focus:outline-none">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 pt-6 pb-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-indigo-100 text-indigo-500 rounded-xl flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scissors" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><path d="M8.12 8.12 12 12"></path><path d="M20 4 8.12 15.88"></path><circle cx="6" cy="18" r="3"></circle><path d="M14.8 14.8 20 20"></path></svg></div>
+          <div>
+            <h1 class="text-xl font-bold text-ink">Przytnij i konwertuj audio — MP3 i WAV</h1>
+            <p class="text-sm text-gray-500">Wytnij fragment nagrania i zapisz go jako MP3 lub WAV.</p>
+          </div>
+        </div>
+      </div>
+        <section aria-labelledby="info-trim" class="max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-12 text-sm text-gray-600 leading-relaxed">
+        <h2 id="info-trim" class="text-lg font-bold text-ink">Jak to działa</h2>
+        <p class="mt-2">Wycinasz fragment nagrania — np. dzwonek z piosenki albo kawałek wywiadu — i zapisujesz go jako MP3 lub WAV. Plik zostaje na Twoim urządzeniu.</p>
+        <ol class="mt-3 space-y-1.5 list-decimal pl-5">
+          <li>Wczytaj plik audio.</li>
+          <li>Zaznacz fragment na wykresie nagrania i odsłuchaj go.</li>
+          <li>Ustaw format i jakość MP3, kanały, płynne wejście i wyciszenie oraz głośność (np. dla muzyki albo mowy).</li>
+          <li>Zapisz wynik.</li>
+        </ol>
+        <h2 class="mt-8 text-lg font-bold text-ink">Pytania i odpowiedzi</h2>
+        <dl class="mt-2 divide-y divide-gray-200">
+          <div class="py-3"><dt class="font-semibold text-ink">Jak wyciąć fragment piosenki na dzwonek?</dt><dd class="mt-1">Zaznacz fragment, dodaj krótkie płynne wejście i wyciszenie, zapisz jako MP3.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Czy zamienię WAV na MP3 (i odwrotnie)?</dt><dd class="mt-1">Tak — wczytaj plik, zaznacz całe nagranie i zapisz je w drugim formacie.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Jakie pliki mogę wczytać?</dt><dd class="mt-1">MP3, WAV, FLAC, OGG/Opus, M4A/AAC, WebM, AIFF i inne formaty, które obsługuje Twoja przeglądarka.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Czy plik trafia na serwer?</dt><dd class="mt-1">Nie. Przycinanie i konwersja odbywają się w Twojej przeglądarce.</dd></div>
+        </dl>
+      </section>
+      </main>
+      <pizu-footer product="PizuAudio"></pizu-footer>
+    </div>
+    <!-- /pizu:static-content --></div>
   </body>
 </html>

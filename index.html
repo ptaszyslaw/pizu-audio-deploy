@@ -29,10 +29,64 @@
     <!-- applies saved theme / contrast / text size before the first paint -->
     <script src="./settings-init.js"></script>
     <title>PizuAudio — darmowe narzędzia audio w przeglądarce</title>
-    <script type="module" crossorigin src="./assets/index-CKLp_I1y.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BtF_bFZ1.css">
+    <script type="module" crossorigin src="./assets/index-DlDns-Rc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CLiriAs9.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!-- pizu:static-content -->
+    <div class="flex flex-col min-h-screen">
+      <pizu-header site="audio" tool="" settings=""></pizu-header>
+      <main id="main" tabindex="-1" class="flex-1 focus:outline-none">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8">
+        <div class="text-center space-y-3">
+          <h1 class="text-3xl md:text-4xl font-bold text-ink">Narzędzia audio, które <span class="text-brand">nie wysyłają</span> Twoich nagrań</h1>
+          <p class="text-gray-500 max-w-2xl mx-auto">Oddziel wokal od muzyki, zrób podkład do karaoke, wytnij fragment i zapisz go jako MP3 — wszystko w Twojej przeglądarce.</p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2">
+          <a href="/oddziel-wokal/" class="group block text-left cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:border-red-200 hover:shadow-md transition-all">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-100 text-red-500 rounded-xl flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines" aria-hidden="true"><path d="M2 10v3"></path><path d="M6 6v11"></path><path d="M10 3v18"></path><path d="M14 8v7"></path><path d="M18 5v13"></path><path d="M22 10v3"></path></svg></div>
+              <div class="min-w-0 flex-1">
+                <p class="text-base font-bold text-ink flex items-center gap-2">Oddziel wokal<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right text-gray-300 group-hover:text-brand transition-colors" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></p>
+                <p class="text-sm text-gray-500 mt-1 leading-relaxed">Rozdziel utwór na wokal i podkład albo na 4 ścieżki — przez AI w przeglądarce. Zmieniaj tonację i tempo, ćwicz fragment w pętli A–B i nagraj swój śpiew do podkładu.</p>
+              </div>
+            </div>
+          </a>
+          <a href="/przytnij-mp3/" class="group block text-left cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:border-red-200 hover:shadow-md transition-all">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-indigo-100 text-indigo-500 rounded-xl flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scissors" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><path d="M8.12 8.12 12 12"></path><path d="M20 4 8.12 15.88"></path><circle cx="6" cy="18" r="3"></circle><path d="M14.8 14.8 20 20"></path></svg></div>
+              <div class="min-w-0 flex-1">
+                <p class="text-base font-bold text-ink flex items-center gap-2">Przytnij i konwertuj<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right text-gray-300 group-hover:text-brand transition-colors" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></p>
+                <p class="text-sm text-gray-500 mt-1 leading-relaxed">Wytnij fragment, wyrównaj głośność, dodaj wyciszenie i zapisz jako MP3 lub WAV.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 grid gap-5 md:grid-cols-3">
+          <div class="flex gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check text-gray-400 shrink-0 mt-0.5" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg><div><p class="text-sm font-semibold text-ink">Prywatnie</p><p class="text-xs text-gray-500 mt-0.5 leading-relaxed">Nagrania są przetwarzane na Twoim urządzeniu i nigdzie nie są wysyłane.</p></div></div>
+          <div class="flex gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu text-gray-400 shrink-0 mt-0.5" aria-hidden="true"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg><div><p class="text-sm font-semibold text-ink">AI w przeglądarce</p><p class="text-xs text-gray-500 mt-0.5 leading-relaxed">Model rozdzielający ścieżki działa lokalnie — na karcie graficznej lub procesorze.</p></div></div>
+          <div class="flex gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone text-gray-400 shrink-0 mt-0.5" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg><div><p class="text-sm font-semibold text-ink">Bez instalacji</p><p class="text-xs text-gray-500 mt-0.5 leading-relaxed">Bez konta, bez limitów i bez opłat. Wystarczy przeglądarka.</p></div></div>
+        </div>
+      </div>
+        <section aria-labelledby="info-home" class="max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-12 text-sm text-gray-600 leading-relaxed">
+        <h2 id="info-home" class="text-lg font-bold text-ink">Jak to działa</h2>
+        
+        <ol class="mt-3 space-y-1.5 list-decimal pl-5">
+          <li>Wybierz narzędzie: oddzielanie wokalu albo przycinanie i konwersję audio.</li>
+          <li>Wczytaj plik audio z urządzenia. Nagranie jest przetwarzane w Twojej przeglądarce.</li>
+          <li>Rozdziel ścieżki lub zaznacz fragment nagrania i ustaw sposób zapisu.</li>
+          <li>Odsłuchaj wynik i pobierz go jako MP3 lub WAV.</li>
+        </ol>
+        <h2 class="mt-8 text-lg font-bold text-ink">Pytania i odpowiedzi</h2>
+        <dl class="mt-2 divide-y divide-gray-200">
+          <div class="py-3"><dt class="font-semibold text-ink">Czy moje nagrania są wysyłane do internetu?</dt><dd class="mt-1">Nie. Nagrania są przetwarzane na Twoim urządzeniu. Przy pierwszym oddzielaniu wokalu przeglądarka pobiera model AI z serwisu Hugging Face, bez wysyłania Twojego pliku.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">Czy muszę instalować program lub zakładać konto?</dt><dd class="mt-1">Nie. Narzędzia działają w przeglądarce, bez instalacji, konta i opłat.</dd></div>
+          <div class="py-3"><dt class="font-semibold text-ink">W jakim formacie zapiszę wynik?</dt><dd class="mt-1">Ścieżki po rozdzieleniu oraz przycięte lub przekonwertowane nagrania możesz pobrać jako MP3 lub WAV.</dd></div>
+        </dl>
+      </section>
+      </main>
+      <pizu-footer product="PizuAudio"></pizu-footer>
+    </div>
+    <!-- /pizu:static-content --></div>
   </body>
 </html>
