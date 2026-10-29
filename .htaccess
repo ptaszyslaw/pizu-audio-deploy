@@ -14,10 +14,17 @@
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP_HOST} !^audio\.pizu\.pl\.?(?::[0-9]+)?$ [NC]
   RewriteRule ^(.*)$ https://audio.pizu.pl/$1 [R=301,L]
+  # Audio files shared to the installed app (manifest share_target) are a POST to /udostepnij,
+  # which the service worker answers. Should one reach the server (no service worker yet), open
+  # the app instead of the 404 page.
+  RewriteCond %{REQUEST_METHOD} =POST
+  RewriteRule ^udostepnij/?$ / [R=303,L]
 </IfModule>
 
 AddType application/javascript .mjs
 AddType application/wasm .wasm
+# Installable website (scripts/pwa.mjs)
+AddType application/manifest+json .webmanifest
 
 # Wrong addresses get the Pizu 404 page (404.html, copied from pizu-pl/shell by
 # scripts/sync-shell.mjs there) instead of the hosting's generic error page.
@@ -37,6 +44,11 @@ ErrorDocument 404 /404.html
   <FilesMatch "^ort-wasm.*\.(wasm|mjs)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
+  # The service worker decides which version visitors run: never from a cache (browsers mostly
+  # skip the HTTP cache for it anyway). The manifest: name and icons of installed apps.
+  <FilesMatch "^(sw\.js|manifest\.webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
 
   # Security headers on every response
   # HSTS only over HTTPS (browsers ignore it over http, which is redirected above
@@ -50,7 +62,8 @@ ErrorDocument 404 /404.html
   Header always set Cross-Origin-Opener-Policy "same-origin"
   # The page's CSP: scripts/deploy.mjs fills in the policy from index.html's
   # <meta> plus frame-ancestors (a <meta> can't carry it). Only on HTML —
-  # workers take their CSP from their own response, and they compile WebAssembly.
+  # workers take their CSP from their own response, and they compile WebAssembly. The same goes
+  # for sw.js; the page's worker-src 'self' lets it register, and default-src 'self' covers the manifest.
   <FilesMatch "\.html$">
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co; base-uri 'self'; form-action 'none'; frame-ancestors 'none'"
   </FilesMatch>

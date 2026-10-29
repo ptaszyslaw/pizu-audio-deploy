@@ -4,4 +4,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/audio/
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R .htaccess 13fb410abf564564a5251e613378cbf2.txt 404.css 404.html assets demo favicon.png index.html licenses oddziel-wokal og-image.png ort-1.30.0 przytnij-mp3 robots.txt settings-init.js sitemap.xml vendor workers $DEPLOYPATH
+    - /bin/cp -R .htaccess 13fb410abf564564a5251e613378cbf2.txt 404.css 404.html apple-touch-icon.png assets demo favicon.png icon-192.png icon-512.png icon-maskable-512.png index.html licenses manifest.webmanifest oddziel-wokal og-image.png ort-1.30.0 przytnij-mp3 robots.txt settings-init.js sitemap.xml sw.js vendor workers $DEPLOYPATH
