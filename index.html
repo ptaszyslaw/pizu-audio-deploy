@@ -2,37 +2,38 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <!-- every address (/, /oddziel-wokal/, …) loads files from the site root — see lib/routes.ts -->
-    <base href="/" />
+    <!-- every address (/audio/, /audio/oddziel-wokal/, …) loads files from the application
+         base (scripts/base.mjs), not from the site root — see lib/routes.ts -->
+    <base href="/audio/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co; base-uri 'self'; form-action 'none'"
     />
     <meta name="description" content="PizuAudio — darmowe narzędzia audio działające w całości w Twojej przeglądarce. Oddziel wokal od muzyki, przytnij i przekonwertuj nagranie bez wysyłania go na serwer." />
-    <link rel="canonical" href="https://audio.pizu.pl/" />
+    <link rel="canonical" href="https://pizu.pl/audio/" />
     <!-- link previews: scripts/tool-pages.mjs sets og:title, og:description and og:url for every tool page;
          the image is shared (pizu-pl: scripts/og-image-tool.html → node scripts/og-image.mjs) -->
     <meta property="og:title" content="PizuAudio — darmowe narzędzia audio w przeglądarce" />
     <meta property="og:description" content="PizuAudio — darmowe narzędzia audio działające w całości w Twojej przeglądarce. Oddziel wokal od muzyki, przytnij i przekonwertuj nagranie bez wysyłania go na serwer." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://audio.pizu.pl/" />
+    <meta property="og:url" content="https://pizu.pl/audio/" />
     <meta property="og:site_name" content="PizuAudio" />
     <meta property="og:locale" content="pl_PL" />
-    <meta property="og:image" content="https://audio.pizu.pl/og-image.png" />
+    <meta property="og:image" content="https://pizu.pl/audio/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Ptak Pizu i napis: PizuAudio — narzędzia, które nie wysyłają Twoich plików. Oddziel wokal, przytnij, MP3 i WAV." />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="./favicon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/audio/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/audio/apple-touch-icon.png" />
     <!-- applies saved theme / contrast / text size before the first paint -->
     <script src="./settings-init.js"></script>
     <title>PizuAudio — darmowe narzędzia audio w przeglądarce</title>
-    <script type="module" crossorigin src="./assets/index-jfk56XvZ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cy7Ef9zP.css">
+    <script type="module" crossorigin src="/audio/assets/index-DnQNVbXv.js"></script>
+    <link rel="stylesheet" crossorigin href="/audio/assets/index-Cy7Ef9zP.css">
   </head>
   <body>
     <div id="root"><!-- pizu:static-content -->
@@ -45,7 +46,7 @@
           <p class="text-gray-500 max-w-2xl mx-auto">Oddziel wokal od muzyki, zrób podkład do karaoke, wytnij fragment i zapisz go jako MP3 — wszystko w Twojej przeglądarce.</p>
         </div>
         <div class="grid gap-4 md:grid-cols-2">
-          <a href="/oddziel-wokal/" class="group block text-left cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:border-red-200 hover:shadow-md transition-all">
+          <a href="/audio/oddziel-wokal/" class="group block text-left cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:border-red-200 hover:shadow-md transition-all">
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 bg-red-100 text-red-500 rounded-xl flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines" aria-hidden="true"><path d="M2 10v3"></path><path d="M6 6v11"></path><path d="M10 3v18"></path><path d="M14 8v7"></path><path d="M18 5v13"></path><path d="M22 10v3"></path></svg></div>
               <div class="min-w-0 flex-1">
@@ -54,7 +55,7 @@
               </div>
             </div>
           </a>
-          <a href="/przytnij-mp3/" class="group block text-left cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:border-red-200 hover:shadow-md transition-all">
+          <a href="/audio/przytnij-mp3/" class="group block text-left cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:border-red-200 hover:shadow-md transition-all">
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 bg-indigo-100 text-indigo-500 rounded-xl flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scissors" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><path d="M8.12 8.12 12 12"></path><path d="M20 4 8.12 15.88"></path><circle cx="6" cy="18" r="3"></circle><path d="M14.8 14.8 20 20"></path></svg></div>
               <div class="min-w-0 flex-1">
@@ -89,6 +90,6 @@
       </main>
       <pizu-footer product="PizuAudio"></pizu-footer>
     </div>
-    <!-- /pizu:static-content --></div>
+    <!-- /pizu:static-content --></div>
   </body>
 </html>

@@ -1,5 +1,2 @@
-# PizuAudio — strona może być w całości indeksowana
-User-agent: *
-Allow: /
-
-Sitemap: https://audio.pizu.pl/sitemap.xml
+# Crawlers only read robots.txt from the domain root — https://pizu.pl/robots.txt
+# (maintained in the pizu-pl repository). This copy under /audio/ is not used.

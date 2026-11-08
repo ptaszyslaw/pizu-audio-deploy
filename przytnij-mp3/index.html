@@ -2,38 +2,39 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <!-- every address (/, /oddziel-wokal/, …) loads files from the site root — see lib/routes.ts -->
-    <base href="/" />
+    <!-- every address (/audio/, /audio/oddziel-wokal/, …) loads files from the application
+         base (scripts/base.mjs), not from the site root — see lib/routes.ts -->
+    <base href="/audio/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co; base-uri 'self'; form-action 'none'"
     />
     <meta name="description" content="Wytnij fragment nagrania, wyrównaj głośność, dodaj płynne wejście i wyciszenie, zapisz jako MP3 lub WAV. W przeglądarce, bez wysyłania pliku na serwer." />
-    <link rel="canonical" href="https://audio.pizu.pl/przytnij-mp3/" />
+    <link rel="canonical" href="https://pizu.pl/audio/przytnij-mp3/" />
     <!-- link previews: scripts/tool-pages.mjs sets og:title, og:description and og:url for every tool page;
          the image is shared (pizu-pl: scripts/og-image-tool.html → node scripts/og-image.mjs) -->
     <meta property="og:title" content="Przytnij MP3 i konwertuj audio — MP3, WAV | PizuAudio" />
     <meta property="og:description" content="Wytnij fragment nagrania, wyrównaj głośność, dodaj płynne wejście i wyciszenie, zapisz jako MP3 lub WAV. W przeglądarce, bez wysyłania pliku na serwer." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://audio.pizu.pl/przytnij-mp3/" />
+    <meta property="og:url" content="https://pizu.pl/audio/przytnij-mp3/" />
     <meta property="og:site_name" content="PizuAudio" />
     <meta property="og:locale" content="pl_PL" />
-    <meta property="og:image" content="https://audio.pizu.pl/og-image.png" />
+    <meta property="og:image" content="https://pizu.pl/audio/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Ptak Pizu i napis: PizuAudio — narzędzia, które nie wysyłają Twoich plików. Oddziel wokal, przytnij, MP3 i WAV." />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="./favicon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/audio/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/audio/apple-touch-icon.png" />
     <!-- applies saved theme / contrast / text size before the first paint -->
     <script src="./settings-init.js"></script>
     <title>Przytnij MP3 i konwertuj audio — MP3, WAV | PizuAudio</title>
-    <script type="module" crossorigin src="./assets/index-jfk56XvZ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cy7Ef9zP.css">
-    <script id="page-structured-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Przytnij i konwertuj audio — MP3 i WAV","description":"Wytnij fragment nagrania, wyrównaj głośność, dodaj płynne wejście i wyciszenie, zapisz jako MP3 lub WAV. W przeglądarce, bez wysyłania pliku na serwer.","applicationCategory":"MultimediaApplication","operatingSystem":"Dowolny — działa w przeglądarce","offers":{"@type":"Offer","price":0,"priceCurrency":"PLN"},"url":"https://audio.pizu.pl/przytnij-mp3/"},{"@type":"FAQPage","url":"https://audio.pizu.pl/przytnij-mp3/","mainEntity":[{"@type":"Question","name":"Jak wyciąć fragment piosenki na dzwonek?","acceptedAnswer":{"@type":"Answer","text":"Zaznacz fragment, dodaj krótkie płynne wejście i wyciszenie, zapisz jako MP3."}},{"@type":"Question","name":"Czy zamienię WAV na MP3 (i odwrotnie)?","acceptedAnswer":{"@type":"Answer","text":"Tak — wczytaj plik, zaznacz całe nagranie i zapisz je w drugim formacie."}},{"@type":"Question","name":"Jakie pliki mogę wczytać?","acceptedAnswer":{"@type":"Answer","text":"MP3, WAV, FLAC, OGG/Opus, M4A/AAC, WebM, AIFF i inne formaty, które obsługuje Twoja przeglądarka."}},{"@type":"Question","name":"Czy plik trafia na serwer?","acceptedAnswer":{"@type":"Answer","text":"Nie. Przycinanie i konwersja odbywają się w Twojej przeglądarce."}}]}]}</script>
+    <script type="module" crossorigin src="/audio/assets/index-DnQNVbXv.js"></script>
+    <link rel="stylesheet" crossorigin href="/audio/assets/index-Cy7Ef9zP.css">
+    <script id="page-structured-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Przytnij i konwertuj audio — MP3 i WAV","description":"Wytnij fragment nagrania, wyrównaj głośność, dodaj płynne wejście i wyciszenie, zapisz jako MP3 lub WAV. W przeglądarce, bez wysyłania pliku na serwer.","applicationCategory":"MultimediaApplication","operatingSystem":"Dowolny — działa w przeglądarce","offers":{"@type":"Offer","price":0,"priceCurrency":"PLN"},"url":"https://pizu.pl/audio/przytnij-mp3/"},{"@type":"FAQPage","url":"https://pizu.pl/audio/przytnij-mp3/","mainEntity":[{"@type":"Question","name":"Jak wyciąć fragment piosenki na dzwonek?","acceptedAnswer":{"@type":"Answer","text":"Zaznacz fragment, dodaj krótkie płynne wejście i wyciszenie, zapisz jako MP3."}},{"@type":"Question","name":"Czy zamienię WAV na MP3 (i odwrotnie)?","acceptedAnswer":{"@type":"Answer","text":"Tak — wczytaj plik, zaznacz całe nagranie i zapisz je w drugim formacie."}},{"@type":"Question","name":"Jakie pliki mogę wczytać?","acceptedAnswer":{"@type":"Answer","text":"MP3, WAV, FLAC, OGG/Opus, M4A/AAC, WebM, AIFF i inne formaty, które obsługuje Twoja przeglądarka."}},{"@type":"Question","name":"Czy plik trafia na serwer?","acceptedAnswer":{"@type":"Answer","text":"Nie. Przycinanie i konwersja odbywają się w Twojej przeglądarce."}}]}]}</script>
   </head>
   <body>
     <div id="root"><!-- pizu:static-content -->
@@ -69,6 +70,6 @@
       </main>
       <pizu-footer product="PizuAudio"></pizu-footer>
     </div>
-    <!-- /pizu:static-content --></div>
+    <!-- /pizu:static-content --></div>
   </body>
 </html>

@@ -1,0 +1,21 @@
+# PizuAudio moved to https://pizu.pl/audio/ — this folder (audio.pizu.pl) now only
+# sends visitors there, path and query kept.
+#
+# Exceptions:
+# - /.well-known/ stays put for AutoSSL (the subdomain keeps its certificate),
+# - sw.js is served here with Cache-Control: no-cache — browsers checking an
+#   installed PWA for a service worker update do not follow redirects, so
+#   without it the old version would stay installed forever. The file in this
+#   folder is the decommissioning worker (scripts/hosting.mjs).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{REQUEST_URI} !^/sw\.js$
+  RewriteRule ^(.*)$ https://pizu.pl/audio/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^sw\.js$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

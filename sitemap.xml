@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://audio.pizu.pl/</loc>
+    <loc>https://pizu.pl/audio/</loc>
   </url>
   <url>
-    <loc>https://audio.pizu.pl/oddziel-wokal/</loc>
+    <loc>https://pizu.pl/audio/oddziel-wokal/</loc>
   </url>
   <url>
-    <loc>https://audio.pizu.pl/przytnij-mp3/</loc>
+    <loc>https://pizu.pl/audio/przytnij-mp3/</loc>
   </url>
 </urlset>

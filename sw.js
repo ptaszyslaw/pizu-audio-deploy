@@ -1,11 +1,13 @@
 /**
- * PizuAudio service worker — scripts/pwa.mjs copies it into the build as /sw.js and puts the
- * build's file list in place of __BUILD__; never deploy this file as is.
+ * PizuAudio service worker — scripts/pwa.mjs copies it into the build as sw.js and puts the
+ * build's file list in place of __BUILD__; never deploy this file as is. Every path in BUILD
+ * carries the application base (https://pizu.pl/audio/) and the worker registers with that
+ * scope (lib/pwa.ts), so it serves only PizuAudio, never the whole pizu.pl site.
  *
- * - On install: every page (/, /oddziel-wokal/ …) and every file the app needs (/assets, the MP3
- *   encoder in /workers and /vendor, icons…) goes into one cache per version, each checked
- *   against its SHA-256 from the build — a half-copied deployment fails the install and the
- *   previous version stays.
+ * - On install: every page (BUILD.base, the tool pages …) and every file the app needs
+ *   (/assets, the MP3 encoder in /workers and /vendor, icons…) goes into one cache per version,
+ *   each checked against its SHA-256 from the build — a half-copied deployment fails the
+ *   install and the previous version stays.
  * - Heavy files only some visitors need are cached the first time a browser fetches them, each
  *   group in its own cache per content revision: ONNX Runtime (/ort-*, 27 MB, vocal separation)
  *   and the demo song (/demo, 3 MB).
@@ -16,7 +18,7 @@
  * - A new version installs in the background and waits; the page shows „Jest nowa wersja”
  *   (lib/pwa.ts) and switches only when the visitor clicks „Odśwież” (or closes every tab).
  */
-const BUILD = {"app":"0.9.0","version":"175773dfd11a","hashLength":16,"pages":["/","/oddziel-wokal/","/przytnij-mp3/"],"offlinePage":"/404.html","precache":[["/","414a91da6eb207ba"],["/oddziel-wokal/","3add88d1be5b74fa"],["/przytnij-mp3/","cd07374fa7e2594a"],["/favicon.png","15d2d5483e8a543a"],["/settings-init.js","6f96924bc4d8d3df"],["/404.html","0f5b351e38f1d755"],["/404.css","3c181cf453dbda73"],["/vendor/lamejs/lame.min.js","15d285e2587b3bdb"],["/manifest.webmanifest","924af06b5e116696"],["/icon-192.png","d272381bb7b21923"],["/icon-512.png","dc556f95fe75af39"],["/icon-maskable-512.png","3c59c519cc25ab56"],["/apple-touch-icon.png","e8590d3f9b5516bb"],["/assets/SeparateVocals-Bs6MLYkq.js","d5aed9e19a081299"],["/assets/TrimConvert-BUZGZLIN.js","771f9fb90486fef1"],["/assets/analysis.worker-BxrKhHWS.js","76b8e5c329125295"],["/assets/index-Cy7Ef9zP.css","90047f65c78611ef"],["/assets/index-jfk56XvZ.js","39062a6f2da0d8e5"],["/assets/licenses-DWr_rjhu.js","b28a3b6670ab5fc7"],["/assets/loudness-client-Yj37RhdS.js","f480227f62e00c6e"],["/assets/loudness.worker-DIa6BqF6.js","8bc7b97ef55235f5"],["/assets/separator.worker-nQAfchPb.js","f1fbf53f1d1872ab"],["/assets/soundtouch-processor-BKTidsbT.js","59635b112697ad40"],["/workers/mp3-encoder.js","036208ea440effe8"],["/workers/recorder-worklet.js","33059b311fba20c7"]],"lazy":[{"cache":"pizuaudio-ort-edf75b6d3f46","prefix":"/ort-"},{"cache":"pizuaudio-demo-44b4ba7e5dc8","prefix":"/demo/"}],"shareAction":"/udostepnij","shareField":"audio"}
+const BUILD = {"app":"0.10.0","version":"3c21d8bce016","hashLength":16,"base":"/audio/","pages":["/audio/","/audio/oddziel-wokal/","/audio/przytnij-mp3/"],"offlinePage":"/audio/404.html","precache":[["/audio/","f05ee4a5bc0a9705"],["/audio/oddziel-wokal/","2b50e40407fbc761"],["/audio/przytnij-mp3/","db4df01d052b332a"],["/audio/favicon.png","15d2d5483e8a543a"],["/audio/settings-init.js","ddb1e3b919a885b2"],["/audio/404.html","3a8f0b0a0b63234f"],["/audio/404.css","3c181cf453dbda73"],["/audio/vendor/lamejs/lame.min.js","15d285e2587b3bdb"],["/audio/manifest.webmanifest","2e84816d37d9128a"],["/audio/icon-192.png","d272381bb7b21923"],["/audio/icon-512.png","dc556f95fe75af39"],["/audio/icon-maskable-512.png","3c59c519cc25ab56"],["/audio/apple-touch-icon.png","e8590d3f9b5516bb"],["/audio/assets/SeparateVocals-DrdEAFd4.js","cefcdf3e15d4cedc"],["/audio/assets/TrimConvert-CHWh3h6r.js","36a869fd4fbf4c06"],["/audio/assets/analysis.worker-BxrKhHWS.js","76b8e5c329125295"],["/audio/assets/index-Cy7Ef9zP.css","90047f65c78611ef"],["/audio/assets/index-DnQNVbXv.js","f24db7d6115b53c8"],["/audio/assets/licenses-DWr_rjhu.js","b28a3b6670ab5fc7"],["/audio/assets/loudness-client-C0OCSLtC.js","f7dfc6b030fc79a2"],["/audio/assets/loudness.worker-DIa6BqF6.js","8bc7b97ef55235f5"],["/audio/assets/separator.worker-nQAfchPb.js","f1fbf53f1d1872ab"],["/audio/assets/soundtouch-processor-BKTidsbT.js","59635b112697ad40"],["/audio/workers/mp3-encoder.js","036208ea440effe8"],["/audio/workers/recorder-worklet.js","33059b311fba20c7"]],"lazy":[{"cache":"pizuaudio-ort-0ab4b6bfde7d","prefix":"/audio/ort-"},{"cache":"pizuaudio-demo-132c55ccb42d","prefix":"/audio/demo/"}],"shareAction":"/audio/udostepnij","shareField":"audio"}
 const APP_CACHE = `pizuaudio-app-${BUILD.version}`
 const SHARE_CACHE = 'pizuaudio-share'
 const PRECACHED = new Set(BUILD.precache.map(([path]) => path))
@@ -34,7 +36,7 @@ self.addEventListener('install', (event) => {
       await Promise.all(
         BUILD.precache.map(async ([path, hash]) => {
           // a hashed name never changes its content, so the HTTP cache may answer; the rest is revalidated
-          const response = await fetch(path, { cache: path.startsWith('/assets/') ? 'default' : 'no-cache' })
+          const response = await fetch(path, { cache: path.startsWith(BUILD.base + 'assets/') ? 'default' : 'no-cache' })
           if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`)
           const body = await response.clone().arrayBuffer()
           if ((await sha256(body)) !== hash) throw new Error(`${path}: treść inna niż w wersji ${BUILD.version}`)
@@ -117,7 +119,7 @@ async function receiveShare(request) {
     const cache = await caches.open(SHARE_CACHE)
     await Promise.all(
       files.map((file, i) =>
-        cache.put(`/udostepnione/${i}`, new Response(file, {
+        cache.put(`${BUILD.base}udostepnione/${i}`, new Response(file, {
           headers: { 'Content-Type': file.type || 'application/octet-stream', 'X-File-Name': encodeURIComponent(file.name) },
         }))
       )
@@ -125,5 +127,5 @@ async function receiveShare(request) {
   } catch (error) {
     console.error('PizuAudio: nie udało się przyjąć udostępnionych plików', error)
   }
-  return Response.redirect(`${self.location.origin}/?udostepnione`, 303)
+  return Response.redirect(`${self.location.origin}${BUILD.base}?udostepnione`, 303)
 }
