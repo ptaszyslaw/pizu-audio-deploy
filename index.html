@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co https://o4512300568477696.ingest.de.sentry.io; base-uri 'self'; form-action 'none'"
     />
     <meta name="description" content="PizuAudio — darmowe narzędzia audio działające w całości w Twojej przeglądarce. Oddziel wokal od muzyki, przytnij i przekonwertuj nagranie bez wysyłania go na serwer." />
     <link rel="canonical" href="https://pizu.pl/audio/" />
@@ -32,7 +32,7 @@
     <!-- applies saved theme / contrast / text size before the first paint -->
     <script src="./settings-init.js"></script>
     <title>PizuAudio — darmowe narzędzia audio w przeglądarce</title>
-    <script type="module" crossorigin src="/audio/assets/index-DnQNVbXv.js"></script>
+    <script type="module" crossorigin src="/audio/assets/index-BYTq2mfL.js"></script>
     <link rel="stylesheet" crossorigin href="/audio/assets/index-Cy7Ef9zP.css">
   </head>
   <body>
@@ -82,6 +82,7 @@
         </ol>
         <h2 class="mt-8 text-lg font-bold text-ink">Pytania i odpowiedzi</h2>
         <dl class="mt-2 divide-y divide-gray-200">
+          <div class="py-3"><dt class="font-semibold text-ink">Kiedy wysyłany jest raport błędu?</dt><dd class="mt-1">Tylko wtedy, gdy w narzędziu wystąpi błąd. Do naprawy trafia wtedy techniczny opis błędu (usługa Sentry, dane w Unii Europejskiej) — bez Twoich plików, ich nazw i adresu IP.</dd></div>
           <div class="py-3"><dt class="font-semibold text-ink">Czy moje nagrania są wysyłane do internetu?</dt><dd class="mt-1">Nie. Nagrania są przetwarzane na Twoim urządzeniu. Przy pierwszym oddzielaniu wokalu przeglądarka pobiera model AI z serwisu Hugging Face, bez wysyłania Twojego pliku.</dd></div>
           <div class="py-3"><dt class="font-semibold text-ink">Czy muszę instalować program lub zakładać konto?</dt><dd class="mt-1">Nie. Narzędzia działają w przeglądarce, bez instalacji, konta i opłat.</dd></div>
           <div class="py-3"><dt class="font-semibold text-ink">W jakim formacie zapiszę wynik?</dt><dd class="mt-1">Ścieżki po rozdzieleniu oraz przycięte lub przekonwertowane nagrania możesz pobrać jako MP3 lub WAV.</dd></div>

@@ -71,6 +71,6 @@ ErrorDocument 404 /audio/404.html
   # workers take their CSP from their own response, and they compile WebAssembly. The same goes
   # for sw.js; the page's worker-src 'self' lets it register, and default-src 'self' covers the manifest.
   <FilesMatch "\.html$">
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co; base-uri 'self'; form-action 'none'; frame-ancestors 'none'"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://huggingface.co https://*.hf.co https://o4512300568477696.ingest.de.sentry.io; base-uri 'self'; form-action 'none'; frame-ancestors 'none'"
   </FilesMatch>
 </IfModule>
